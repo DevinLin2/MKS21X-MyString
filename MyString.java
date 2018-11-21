@@ -6,16 +6,21 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
       data[i] = s.chatAt(i);
     }
   }
-  public char charAt(int index){
+  public char charAt(int index){ //implement indexOutOfBounds
     return data[index];
   }
   public int length(){
     return data.length;
   }
-  public CharSequence subSequence(int start, int end){
+  public String subSequence(int start, int end){
+    String subSequence = "";
+    for (int i = start; i < end; i++){
+      ans += data.charAt[i];
+    }
+    return subSequence;
   }
   public String toString(){
-    ans = "";
+    String ans = "";
     for (int i = 0; i < data.length; i++){
       ans += data[i];
     }
