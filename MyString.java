@@ -16,6 +16,9 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     return data.length;
   }
   public String subSequence(int start, int end) throws IndexOutOfBoundsException{
+    if (start < 0 || end < 0 || end > data.length || start > end){
+      throw new IndexOutOfBoundsException("index out of bounds");
+    }
     String subSequence = "";
     for (int i = start; i < end; i++){
       subSequence += data[i];
@@ -30,13 +33,10 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     return ans;
   }
   public int compareTo(CharSequence value) throws NullPointerException{
-    if (data.length > value.length()){
-      return 1;
+    if (value == null){
+      throw new NullPointerException("enter valid value to compare");
     }
-    if (data.length < value.length()){
-      return -1;
-    }
-    for (int i = 0; i < data.length; i ++){
+    for (int i = 0; i < data.length && i < value.length(); i ++){
       if (!(data[i] == value.charAt(i))){
         if (data[i] > value.charAt(i)){
           return 1;
@@ -45,6 +45,12 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
           return -1;
         }
       }
+    }
+    if (data.length > value.length()){
+      return 1;
+    }
+    if (data.length < value.length()){
+      return -1;
     }
     return 0;
   }
