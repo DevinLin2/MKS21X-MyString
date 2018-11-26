@@ -3,10 +3,13 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
   public MyString(CharSequence s){
     data = new char[s.length()];
     for (int i = 0; i < s.length(); i++){
-      data[i] = s.chatAt(i);
+      data[i] = s.charAt(i);
     }
   }
   public char charAt(int index) throws IndexOutOfBoundsException{ //implement indexOutOfBounds
+    if (index < 0 || index >= data.length){
+      throw new IndexOutOfBoundsException("index out of bounds");
+    }
     return data[index];
   }
   public int length(){
@@ -15,7 +18,7 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
   public String subSequence(int start, int end) throws IndexOutOfBoundsException{
     String subSequence = "";
     for (int i = start; i < end; i++){
-      ans += data.charAt[i];
+      subSequence += data[i];
     }
     return subSequence;
   }
