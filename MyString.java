@@ -6,6 +6,7 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
       data[i] = s.charAt(i);
     }
   }
+  // this is a test for codeanywhere.
   public char charAt(int index) throws IndexOutOfBoundsException{ //implement indexOutOfBounds
     if (index < 0 || index >= data.length){
       throw new IndexOutOfBoundsException("index out of bounds");
